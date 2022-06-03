@@ -6,12 +6,13 @@
         @keyup.enter="addTask"
         class="pa-3"
         outlined
-        label="Append"
+        label="Add Task"
         append-icon="mdi-plus"
         hide-details
         clearable
     ></v-text-field>
     <v-list
+        v-if="tasks.length"
         flat
         class="pt-0"
     >
@@ -33,7 +34,7 @@
             </v-list-item-content>
             <v-list-item-action>
               <v-btn icon
-              @click.stop="deleteTask(task.id)"
+                     @click.stop="deleteTask(task.id)"
               >
                 <v-icon color="primary lighten-1">mdi-delete</v-icon>
               </v-btn>
@@ -43,6 +44,20 @@
         <v-divider></v-divider>
       </div>
     </v-list>
+    <div
+        v-else
+        class="no-tasks"
+    >
+      <v-icon
+          size="100px"
+          color="primary"
+      >
+        mdi-check
+      </v-icon>
+      <div class="primary--text text-h5">
+        No Tasks
+      </div>
+    </div>
   </div>
 </template>
 
@@ -54,21 +69,21 @@ export default {
     return {
       newTaskTitle: '',
       tasks: [
-        {
-          id: 1,
-          title: 'Wake Up',
-          done: false,
-        },
-        {
-          id: 2,
-          title: 'Do laundry',
-          done: false,
-        },
-        {
-          id: 3,
-          title: 'Walk dog',
-          done: false,
-        }
+      //   {
+      //     id: 1,
+      //     title: 'Wake Up',
+      //     done: false,
+      //   },
+      //   {
+      //     id: 2,
+      //     title: 'Do laundry',
+      //     done: false,
+      //   },
+      //   {
+      //     id: 3,
+      //     title: 'Walk dog',
+      //     done: false,
+      //   }
       ]
     }
   },
@@ -92,3 +107,12 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+  .no-tasks
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    opacity: 0.5
+</style>
