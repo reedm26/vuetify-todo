@@ -2,12 +2,12 @@
   <div class="home">
     <v-list
         flat
-       class="pt-0"
+        class="pt-0"
     >
-      <div  v-for="task in tasks" :key="task.id">
+      <div v-for="task in tasks" :key="task.id">
         <v-list-item
-        @click="doneTask(task.id)"
-        :class="{'blue lighten-5' : task.done}"
+            @click="doneTask(task.id)"
+            :class="{'blue lighten-5' : task.done}"
         >
           <template v-slot:default>
             <v-list-item-action>
@@ -20,6 +20,13 @@
               >{{ task.title }}
               </v-list-item-title>
             </v-list-item-content>
+            <v-list-item-action>
+              <v-btn icon
+              @click.stop="deleteTask(task.id)"
+              >
+                <v-icon color="primary lighten-1">mdi-delete</v-icon>
+              </v-btn>
+            </v-list-item-action>
           </template>
         </v-list-item>
         <v-divider></v-divider>
@@ -53,11 +60,14 @@ export default {
       ]
     }
   },
-methods: {
+  methods: {
     doneTask(id) {
       let task = this.tasks.filter(t => t.id === id)[0]
       task.done = !task.done
+    },
+    deleteTask(id) {
+      this.task = this.tasks.filter(task => task.id !== id)
     }
-}
+  }
 }
 </script>
