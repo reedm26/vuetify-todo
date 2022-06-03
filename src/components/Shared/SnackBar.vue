@@ -21,7 +21,7 @@
 export default {
   name: "SnackBar",
   data: () => ({
-    text: `Hello, I'm a snackbar`,
+    text: 'Task Added',
   }),
 }
 </script>

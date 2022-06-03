@@ -23,7 +23,7 @@ export default new Vuex.Store({
       }
     ],
     snackbar: {
-      show: false
+      show: false,
     }
   },
   getters: {
@@ -43,9 +43,16 @@ export default new Vuex.Store({
     },
     deleteTask(state, id) {
       state.tasks = state.tasks.filter(task => task.id !== id)
+    },
+    showSnackBar(state){
+      state.snackbar.show = true
     }
   },
   actions: {
+    addTask({commit}, newTaskTitle) {
+      commit('addTask', newTaskTitle)
+      commit('showSnackBar')
+    }
   },
   modules: {
   }
