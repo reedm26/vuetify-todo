@@ -2,8 +2,8 @@
   <div class="home">
     <v-text-field
         v-model="newTaskTitle"
-        @click:append="$store.commit('addTask', newTaskTitle)"
-        @keyup.enter="$store.commit('addTask',newTaskTitle)"
+        @click:append="addTask"
+        @keyup.enter="addTask"
         class="pa-3"
         outlined
         label="Add Task"
@@ -18,7 +18,7 @@
     >
       <div v-for="task in $store.state.tasks" :key="task.id">
         <v-list-item
-            @click="doneTask(task.id)"
+            @click="$store.commit('doneTask', task.id)"
             :class="{'blue lighten-5' : task.done}"
         >
           <template v-slot:default>
@@ -34,7 +34,7 @@
             </v-list-item-content>
             <v-list-item-action>
               <v-btn icon
-                     @click.stop="deleteTask(task.id)"
+                     @click.stop="$store.commit('deleteTask', task.id)"
               >
                 <v-icon color="primary lighten-1">mdi-delete</v-icon>
               </v-btn>
@@ -72,12 +72,7 @@ export default {
   },
   methods: {
     addTask() {
-      let newTask = {
-        id: Date.now(),
-        title: this.newTaskTitle,
-        done: false
-      }
-      this.tasks.push(newTask)
+      this.$store.commit('addTask', this.newTaskTitle)
       this.newTaskTitle = ''
     },
     doneTask(id) {
