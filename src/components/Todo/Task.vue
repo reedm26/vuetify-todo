@@ -25,12 +25,17 @@
       </template>
     </v-list-item>
     <v-divider></v-divider>
+
+    <dialog-delete/>
   </div>
 </template>
 
 <script>
 export default {
   name: "Task",
+  components: {
+    'dialog-delete': require('@/components/Todo/Dialogs/DialogDelete').default,
+  },
   props: ['task']
 }
 </script>
