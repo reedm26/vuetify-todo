@@ -40,7 +40,7 @@
         color="primary"
         dark
         prominent
-        src="https://picsum.photos/1920/1080?random"
+        src="desk-pic.jpeg"
         @click="drawer = !drawer"
     >
       <template v-slot:img="{ props }">
@@ -52,7 +52,7 @@
 
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Title</v-app-bar-title>
+      <v-app-bar-title>Vuetify Todo</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
