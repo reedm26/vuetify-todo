@@ -12,11 +12,11 @@
         clearable
     ></v-text-field>
     <v-list
-        v-if="tasks.length"
+        v-if="$store.state.tasks.length"
         flat
         class="pt-0"
     >
-      <div v-for="task in tasks" :key="task.id">
+      <div v-for="task in $store.state.tasks" :key="task.id">
         <v-list-item
             @click="doneTask(task.id)"
             :class="{'blue lighten-5' : task.done}"
@@ -68,23 +68,6 @@ export default {
   data() {
     return {
       newTaskTitle: '',
-      tasks: [
-      //   {
-      //     id: 1,
-      //     title: 'Wake Up',
-      //     done: false,
-      //   },
-      //   {
-      //     id: 2,
-      //     title: 'Do laundry',
-      //     done: false,
-      //   },
-      //   {
-      //     id: 3,
-      //     title: 'Walk dog',
-      //     done: false,
-      //   }
-      ]
     }
   },
   methods: {
