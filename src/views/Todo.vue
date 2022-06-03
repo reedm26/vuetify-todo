@@ -2,8 +2,8 @@
   <div class="home">
     <v-text-field
         v-model="newTaskTitle"
-        @click:append="addTask"
-        @keyup.enter="addTask"
+        @click:append="$store.commit('addTask', newTaskTitle)"
+        @keyup.enter="$store.commit('addTask',newTaskTitle)"
         class="pa-3"
         outlined
         label="Add Task"
