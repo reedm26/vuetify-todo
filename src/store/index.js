@@ -21,7 +21,10 @@ export default new Vuex.Store({
         title: 'Walk dog',
         done: false,
       }
-    ]
+    ],
+    snackbar: {
+      show: false
+    }
   },
   getters: {
   },

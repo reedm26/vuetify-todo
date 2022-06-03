@@ -6,9 +6,6 @@
           <v-list-item-title class="text-h6">
             Vuetify Todo
           </v-list-item-title>
-          <v-list-item-subtitle>
-            getting things done
-          </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
@@ -71,6 +68,7 @@
 
     <v-main>
       <router-view></router-view>
+      <snackbar />
     </v-main>
   </v-app>
 </template>
@@ -84,5 +82,8 @@ export default {
       {title: 'About', icon: 'mdi-help-box', to: "/about"},
     ],
   }),
+    components: {
+      'snackbar': require('@/components/Shared/SnackBar').default
+    }
 }
 </script>
