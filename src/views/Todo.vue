@@ -87,7 +87,7 @@ export default {
       task.done = !task.done
     },
     deleteTask(id) {
-      this.task = this.tasks.filter(task => task.id !== id)
+      this.tasks = this.tasks.filter(task => task.id !== id)
     }
   }
 }
