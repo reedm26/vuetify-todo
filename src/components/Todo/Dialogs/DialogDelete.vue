@@ -4,6 +4,9 @@
       persistent
       max-width="290"
   >
+    <template v-slot:activator="{ on, attrs }">
+
+    </template>
     <v-card>
       <v-card-title class="text-h5">
         Use Google's location service?
